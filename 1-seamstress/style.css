@@ -1,0 +1,155 @@
+@font-face {
+    font-family: PT Root;
+    src: url(assets/ptroot.woff2);
+}
+
+body {
+    font-family: PT Root;
+    font-size: 24px;
+    line-height: 1.5;
+    background-color: #000000;
+    color: #ffffff;
+}
+
+header {
+    position: fixed;
+    top: 8px;
+    left: 0;
+    font-size: 16px;
+    font-weight: bold;
+    z-index: 1;
+}
+
+header h1,
+header h2 {
+    display: flex;
+    animation: headerCarousel 6s linear infinite;
+}
+
+header h1 span,
+header h2 span {
+    flex-shrink: 0;
+    min-width: 150px;
+    padding: 0 20px;
+}
+
+header h2 span {
+    min-width: 250px;
+}
+
+section {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-flow: dense;
+    min-height: 100vh;
+}
+
+section .split {
+    display: grid;
+    place-items: center;
+}
+
+section .split:first-child {
+    background-color: #111111;
+    overflow: hidden;
+}
+
+section.alternate .split:first-child {
+    grid-column: 2;
+}
+
+section.alternate .split:last-child {
+    grid-column: 1;
+}
+
+@media screen and (max-width: 1080px) {
+    section {
+        display: block;
+    }
+
+    section .split {
+        padding: 64px 0;
+    }
+}
+
+section .slides {
+    position: relative;
+    display: grid;
+    width: 70%;
+    max-width: 500px;
+    aspect-ratio: 0.66;
+    z-index: 0;
+    perspective: 800px;
+}
+
+section .slides div {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    overflow: hidden;
+    box-shadow: 0 0 1px #1d1710;
+    border-radius: 20px;
+}
+
+section .slides div:after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    box-shadow: inset 0 0 30px rgba(130, 98, 61, 0.5), inset 0 0 15px rgba(130, 98, 61, 0.5);
+    border-radius: inherit;
+}
+
+section .slides div img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    user-select: none;
+}
+
+section .info {
+    max-width: 480px;
+    padding: 32px;
+}
+
+section h2 {
+    font-size: 32px;
+}
+
+section p {
+    margin: 32px 0 0 0;
+}
+
+section a {
+    display: inline-flex;
+    align-items: center;
+    color: #111;
+    background: #fff;
+    border-radius: 50px;
+    padding: 8px 24px;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+section a img {
+    margin-left: 8px;
+    width: 10px;
+    height: 16px;
+    object-fit: cover;
+    object-position: center right;
+    transition: width 0.25s;
+}
+
+section a:focus img,
+section a:hover img {
+    width: 25px;
+}
+
+@keyframes headerCarousel {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(calc(-1px * var(--_spanWidth)));
+    }
+}

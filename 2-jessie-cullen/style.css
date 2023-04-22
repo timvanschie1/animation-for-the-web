@@ -1,0 +1,132 @@
+@font-face {
+    font-family: "Mazius Review";
+    src: url(assets/maziusreview-regular.woff2);
+}
+
+@font-face {
+    font-family: "Mazius Review";
+    font-style: italic;
+    src: url(assets/maziusreview-extraitalic.woff2);
+}
+
+@keyframes fadein {
+    0% {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes hyphen {
+    0% {
+        width: 0.5em;
+    }
+
+    100% {
+        width: 1em;
+    }
+}
+
+body {
+    font-family: Mazius Review, serif;
+    font-size: 48px;
+    line-height: 1.25;
+    color: #111;
+    background-color: #fff;
+    padding-top: 100svh;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+h1 {
+    font-style: italic;
+    font-size: 10vw;
+    animation: fadein 0.4s 1s both;
+}
+
+h2 {
+    max-width: 480px;
+    font-size: 36px;
+    animation: fadein 0.4s 2s both;
+}
+
+header span {
+    display: inline-block;
+    vertical-align: middle;
+    background-color: #000;
+    width: 1em;
+    height: 0.02em;
+    animation: hyphen 2s 1s infinite alternate linear;
+}
+
+section {
+    padding: 200px;
+}
+
+figure {
+    margin: 0 auto;
+    max-width: 900px;
+}
+
+figcaption {
+    margin: 24px 25% 0 0;
+}
+
+figure img {
+    width: 100%;
+    height: auto;
+    filter: grayscale(100%) brightness(125%) contrast(125%);
+}
+
+svg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    height: 100svh;
+    z-index: 10;
+    mix-blend-mode: multiply;
+    pointer-events: none;
+}
+
+path {
+    transform: scale(0);
+    transition: transform 5s;
+}
+
+g.blob.in-view path {
+    transform: scale(1);
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    background-image: linear-gradient(to bottom, #ffffff, #f9868d, #8652ff, #ff4141, #ffffff);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: black;
+}
+
+.arrow {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 32px;
+}
