@@ -4,6 +4,7 @@
 - SVG preserveAspectRatio is somewhat like CSS object-fit: you determine how the SVG should be stretched or cut off. xMinYMax: min means start and max means end.
 - Use the <g> tag in SVG to group something and position it with transform.
 - Trick to easily position from the center (e.g. 500 500 of a 1000 1000 viewBox) with transform: in Figma: create a frame (1000 1000) and position the element with the top left corner as its center.
+- But positioning might be a lot easier by now with https://stackoverflow.com/questions/6711610/how-to-set-transform-origin-in-svg 
 - Pointer events: none on an svg makes the UI elements clickable, even though the svg is placed over the elements.
 - When using JS, a custom function is easy to add easing on scroll.
 - Really like the hyphen animation in the name... will use it someday.
