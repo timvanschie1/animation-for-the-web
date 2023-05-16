@@ -1,7 +1,7 @@
 const slidesElements = document.querySelectorAll('.slides')
 
 slidesElements.forEach((slides) => {
-    let current = 0;
+    let currentIndex = 0;
     const images = slides.querySelectorAll('div');
 
     let z = 1000000;
@@ -25,35 +25,33 @@ slidesElements.forEach((slides) => {
         })
             .to(images, {x: 0, y: 0, stagger: -0.25})
             .to(images, {
-                rotation: () => {
-                    return 16 * Math.random() - 8;
-                },
+                rotation: () => 16 * Math.random() - 8,
             })
 
         slides.addEventListener('click', () => {
             z--;
 
-            const currentImage = images[current];
+            const currentImage = images[currentIndex];
 
             let direction = "150%";
-            let angle = 15;
+            let rotation = 15;
             let rotateY = -30;
 
             if (Math.random() > 0.5) {
                 direction = "-150%";
-                angle = -15;
+                rotation = -15;
                 rotateY = 30;
             }
 
             const flipTimeline = gsap.timeline();
             flipTimeline
-                .set(currentImage, {x: 0})
-                .to(currentImage, {x: direction, rotation: angle, rotationY: rotateY, scale: 1.1, duration: 0.4})
+                .to(currentImage, {x: direction, rotation: rotation, rotationY: rotateY, scale: 1.1, duration: 0.4})
                 .set(currentImage, {zIndex: z})
                 .to(currentImage, {x: 0, rotation: 16 * Math.random() - 8, rotationY: 0, scale: 1, duration: 0.4})
 
-            current++;
-            current = current % images.length;
+
+            currentIndex++;
+            currentIndex = currentIndex % images.length;
         })
     })
 })
