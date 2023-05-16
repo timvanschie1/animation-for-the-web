@@ -1,33 +1,32 @@
 const slidesElements = document.querySelectorAll('.slides')
 
 slidesElements.forEach((slides) => {
-    let current = 0
-    let z = 1000000
+    let current = 0;
+    const images = slides.querySelectorAll('div');
 
-    const images = slides.querySelectorAll('div')
-
+    let z = 1000000;
     images.forEach((image) => {
-        z--
-        image.style.zIndex = z
+        z--;
+        image.style.zIndex = z;
     })
 
     imagesLoaded(images, () => {
-        const tl = gsap.timeline()
+        const tl = gsap.timeline();
 
         tl.set(images, {
             x: () => {
-                return 500 * Math.random() - 250
+                return 500 * Math.random() - 250;
             },
             y: '500%',
             rotation: () => {
-                return 90 * Math.random() - 45
+                return 90 * Math.random() - 45;
             },
             opacity: 1,
         })
             .to(images, {x: 0, y: 0, stagger: -0.25})
             .to(images, {
                 rotation: () => {
-                    return 16 * Math.random() - 8
+                    return 16 * Math.random() - 8;
                 },
             })
 
