@@ -49,7 +49,6 @@ slidesElements.forEach((slides) => {
                 .set(currentImage, {zIndex: z})
                 .to(currentImage, {x: 0, rotation: 16 * Math.random() - 8, rotationY: 0, scale: 1, duration: 0.4})
 
-
             currentIndex++;
             currentIndex = currentIndex % images.length;
         })
