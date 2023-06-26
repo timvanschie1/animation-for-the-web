@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@600&display=swap');
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+body {
+    font-family: IBM Plex Mono, Arial, sans-serif;
+    line-height: 1.5;
+    color: #ffffff;
+    background-color: #140e3c;
+    height: 8000px;
+}
+
+main {
+    animation: fadeIn 1s 1s both;
+}
+
+section,
+header {
+    position: fixed;
+    inset: 0;
+}
+
+section.house,
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100dvh;
+}
+
+section.house,
+section.scene {
+    opacity: 0;
+}
+
+header {
+    padding: 32px;
+    text-align: center;
+}
+
+header svg {
+    max-height: 300px;
+}
+
+h1 {
+    margin: 1em 0 0 0;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+section.scene img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    max-width: none;
+    will-change: transform;
+}
+
+section.house {
+    padding: 32px;
+}
+
+section.house svg {
+    max-width: 100%;
+}
+
+section.house svg g#scene {
+    transition: opacity 0.25s;
+}
+
+section.house svg:hover g#scene {
+    opacity: 0.25;
+}
+
+.label {
+    margin-top: 30px;
+    position: fixed;
+    color: #140e3c;
+    background-color: white;
+    padding: 0.5em 1.5em;
+    pointer-events: none;
+    opacity: 0;
+}
+
+.label.is-visible {
+    opacity: 1;
+}
+
+/*.label*/
