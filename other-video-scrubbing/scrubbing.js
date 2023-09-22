@@ -14,7 +14,7 @@ function scroll() {
   const total = section.clientHeight - window.innerHeight;
   let percentage = distance / total;
   percentage = Math.max(0, percentage);
-  percentage = Math.min(1, percentage);
+  percentage = Math.min(0.99, percentage);
 
   if (video.duration > 0) {
     video.currentTime = video.duration * percentage;
