@@ -8,6 +8,5 @@ if (ctaEl) {
     setTimeout(() => {
       window.location.href = e.target.href;
     }, 30);
-
   })
 }
