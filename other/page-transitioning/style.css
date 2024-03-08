@@ -186,3 +186,7 @@ p {
 .case__intro-right {
     flex: 0 1 70%;
 }
+
+::view-transition-group(case-image) {
+    animation-timing-function: cubic-bezier(0.86,0,0.07,1);
+}
